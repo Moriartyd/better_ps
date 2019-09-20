@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 20:06:37 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/20 18:28:10 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 18:35:22 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ int						get_pos(int a, int b, int c);
 void					sort_3(t_stack *s, int c);
 void					deep_sort_3(t_stack *s, int c);
 void					sort_2(t_stack *s, int c);
+int						check_meda(t_stack *s, int med);
+int						check_medb(t_stack *s, int med);
 
 /*
 **	Command optimization

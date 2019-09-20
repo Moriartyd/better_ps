@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 16:54:20 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/05 23:45:30 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 18:44:53 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static t_stack	*f_arg(char *str)
 	while (arr[i])
 		i++;
 	if (!i)
-		return (0);
+		return (ft_doublestrdel(&arr) + NULL);
 	s = create_stack(i);
 	i = -1;
 	while (++i <= s->siza)

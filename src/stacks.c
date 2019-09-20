@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 23:56:23 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/20 15:50:43 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 18:42:47 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,25 @@ t_stack		*create_stack(int size)
 	stack->sizb = -1;
 	stack->f = 0;
 	return (stack);
+}
+
+t_cmdlist	*delete_cmds(t_cmdlist **lst)
+{
+	t_cmdlist	*now;
+	t_cmdlist	*tmp;
+
+	if (!lst || !(*lst))
+		return (NULL);
+	now = *lst;
+	while (now)
+	{
+		tmp = now->next;
+		free(now);
+		now = NULL;
+		now = tmp;
+	}
+	lst = NULL;
+	return (NULL);
 }
 
 t_stack		*delete_stack(t_stack *stack)

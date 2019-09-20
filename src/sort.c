@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 21:08:35 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/11 19:42:12 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 18:36:26 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 int				divide_a(t_stack *s)
 {
 	int	med;
-	int	i;
 	int	res;
 	int	rot;
 
-	i = s->siza + 1;
 	res = 0;
-	med = get_median(s->a, i);
+	med = get_median(s->a, s->siza + 1);
 	rot = 0;
-	while (--i >= 0)
+	while (check_meda(s, med))
 	{
 		if (s->a[s->siza] < med)
 		{
@@ -44,15 +42,13 @@ int				divide_a(t_stack *s)
 static int		divide_b(t_stack *s)
 {
 	int	med;
-	int	i;
 	int	res;
 	int	rot;
 
-	i = s->sizb + 1;
 	res = 0;
-	med = get_median(s->b, i);
+	med = get_median(s->b, s->sizb + 1);
 	rot = 0;
-	while (--i >= 0)
+	while (check_medb(s, med))
 	{
 		if (s->b[s->sizb] >= med)
 		{
