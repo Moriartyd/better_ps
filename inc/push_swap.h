@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 20:06:37 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/20 15:58:31 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 18:28:10 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,9 @@ void					sort_2(t_stack *s, int c);
 */
 
 void		add_cmd(t_cmdlist *head, int cmd);
-int			check_ss(t_cmdlist **lst);
-int			check_rr(t_cmdlist **lst);
-int			check_rrr(t_cmdlist **lst);
+void		print_cmd(t_cmdlist **lst);
 void		cmd_optimize(t_cmdlist *head);
+void		optimize_push(t_cmdlist **lst);
+void			optimize_rorevrota(t_cmdlist **lst);
 
 #endif

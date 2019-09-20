@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/25 19:23:03 by cpollich          #+#    #+#              #
-#    Updated: 2019/09/20 15:30:17 by cpollich         ###   ########.fr        #
+#    Updated: 2019/09/20 18:27:13 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC	=	stacks.c\
 		parse_input.c\
 		exec_com.c\
 		ft_quicksort.c sort.c deep_sort.c\
-		sort_small.c cmd_lst.c
+		sort_small.c cmd_lst.c cmd_optimize.c\
+		rotrevrota_optimize.c
 
 SRC_T		=	$(addprefix $(SRC_DIR)/,$(SRC))
 
