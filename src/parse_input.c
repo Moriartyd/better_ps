@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 16:54:20 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/20 18:44:53 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 20:50:46 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,23 @@ static int		check_dubble(int *arr, int n)
 	return (1);
 }
 
+static int		check_valid(char *str)
+{
+	size_t i;
+
+	i = 0;
+	str[0] == '-' ? i++ : 0;
+	while (str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit((int)str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 static t_stack	*f_arg(char *str)
 {
 	char	**arr;
@@ -60,7 +77,7 @@ static t_stack	*f_arg(char *str)
 	while (++i <= s->siza)
 	{
 		s->a[i] = ft_atoi(arr[i]);
-		if (s->a[i] == 0 && arr[i][0] != '0')
+		if (!check_valid(arr[i]) || (s->a[i] == 0 && arr[i][0] != '0'))
 			return (ft_doublestrdel(&arr) + delete_stack(s));
 	}
 	if (!check_dubble(s->a, s->siza + 1))
@@ -84,7 +101,7 @@ t_stack			*parse_input(int ac, char **av)
 	while (++i <= res->siza)
 	{
 		res->a[i] = ft_atoi(av[i]);
-		if (res->a[i] == 0 && av[i][0] != '0')
+		if (!check_valid(av[i]) || (res->a[i] == 0 && av[i][0] != '0'))
 			return (delete_stack(res));
 	}
 	if (!check_dubble(res->a, res->siza + 1))

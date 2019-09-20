@@ -6,9 +6,11 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 16:58:52 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/10 22:52:55 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 20:48:01 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_atoi(const char *str)
 {
