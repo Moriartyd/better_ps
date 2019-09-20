@@ -3,14 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+         #
+#    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 14:33:12 by cpollich          #+#    #+#              #
-#    Updated: 2019/08/27 16:27:45 by cpollich         ###   ########.fr        #
+#    Updated: 2019/09/20 20:16:07 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+HEADER = libft.h
 
 SRC = 	ft_memset.c\
 		ft_bzero.c\
@@ -62,10 +64,10 @@ F = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(SRCO)
+$(NAME): $(SRCO) $(HEADER)
 	@ar rc $(NAME) $(SRCO)
 	@ranlib $(NAME)
-	@echo "libft was built"
+	@echo "\033[1;32mlibft.a was built\033[0m"
 
 $(SRCO): $(SRC)
 	@gcc $F -c $(SRC)
@@ -75,7 +77,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "libft fully cleaned"
 
 re: fclean all
 

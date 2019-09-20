@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/25 19:23:03 by cpollich          #+#    #+#              #
-#    Updated: 2019/09/20 18:37:09 by cpollich         ###   ########.fr        #
+#    Updated: 2019/09/20 20:18:30 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,15 @@ OBJ_DIR		=	./obj
 
 F	=	-Wall -Wextra -Werror
 
+PS_H	=	$(INC_DIR)/push_swap.h
+
 SRC	=	stacks.c\
 		push_swap_op.c revrot_op.c rot_op.c\
 		parse_input.c\
 		exec_com.c\
 		ft_quicksort.c sort.c deep_sort.c\
 		sort_small.c cmd_lst.c push_optimize.c\
-		rotrevrota_optimize.c sort_help.c
+		sort_help.c
 
 SRC_T		=	$(addprefix $(SRC_DIR)/,$(SRC))
 
@@ -47,21 +49,15 @@ $(OBJ_DIR):
 $(LIBFT):
 	@make -C libft
 
-$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJS) $(PUSH_SWAP_OBJ) $(CHECKER_OBJ)
-	@echo "Compiling ./push_swap"
-	@gcc $(LIBFT) $F -g $(OBJS) $(PUSH_SWAP_OBJ) -o $(NAME_PS)
-	@echo "Compiling ./checker"
-	@gcc $(LIBFT) $F -g $(OBJS) $(CHECKER_OBJ) -o $(NAME_CHECKER)
-	@echo "Project was built"
-
-$(NAME_CHECKER):
-	@echo "This will only do ./checker!"
-	@make $(LIBFT) $(OBJ_DIR) $(OBJS) $(CHECKER_OBJ)
+$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJS) $(PUSH_SWAP_OBJ) $(CHECKER_OBJ) $(PS_H)
+	@echo "\033[35mCompiling ./push_swap\033[0m"
+	@gcc $(LIBFT) $F $(OBJS) $(PUSH_SWAP_OBJ) -o $(NAME_PS)
+	@echo "\033[35mCompiling ./checker\033[0m"
 	@gcc $(LIBFT) $F $(OBJS) $(CHECKER_OBJ) -o $(NAME_CHECKER)
-	@echo "Checker was built"
+	@echo "\033[1;32mProject was built\033[0m"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@gcc $(FLAGS) -g -c $< -I$(INC_DIR) -I$(LIBFT_DIR) -o $@
+	@gcc $(FLAGS) -c $< -I$(INC_DIR) -I$(LIBFT_DIR) -o $@
 
 clean:
 	@rm -rf $(OBJ_DIR)
@@ -71,6 +67,8 @@ fclean: clean
 	@rm -rf $(NAME_PS)
 	@rm -rf $(NAME_CHECKER)
 	@make -C libft fclean
-	@echo "Project fully cleaned"
+	@echo "\033[3;36mProject fully cleaned\033[0m"
 
 re: fclean all
+
+.PHONY: all clean fclean re

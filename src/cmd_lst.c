@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 00:00:03 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/20 18:30:51 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 20:07:53 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	cmd_optimize(t_cmdlist *head)
 	while (tmp)
 	{
 		optimize_push(&tmp);
-		// optimize_rorevrota(&tmp);
 		print_cmd(&tmp);
 	}
 }

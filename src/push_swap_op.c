@@ -6,13 +6,13 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 21:07:59 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/20 16:04:03 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 20:08:06 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		push_a(t_stack *stack)
+void	push_a(t_stack *stack)
 {
 	if (!stack || stack->sizb < 0)
 		return ;
@@ -23,7 +23,7 @@ void		push_a(t_stack *stack)
 		add_cmd(stack->lst, 1);
 }
 
-void		push_b(t_stack *stack)
+void	push_b(t_stack *stack)
 {
 	if (!stack || stack->siza < 0)
 		return ;

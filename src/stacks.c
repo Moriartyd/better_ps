@@ -6,13 +6,13 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 23:56:23 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/20 18:42:47 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 20:08:54 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		print_stacks(t_stack *stack)
+void				print_stacks(t_stack *stack)
 {
 	int	i;
 
@@ -38,7 +38,7 @@ void		print_stacks(t_stack *stack)
 	ft_putstr("\n\n");
 }
 
-t_stack		*create_stack(int size)
+t_stack				*create_stack(int size)
 {
 	t_stack	*stack;
 
@@ -57,7 +57,7 @@ t_stack		*create_stack(int size)
 	return (stack);
 }
 
-t_cmdlist	*delete_cmds(t_cmdlist **lst)
+static t_cmdlist	*delete_cmds(t_cmdlist **lst)
 {
 	t_cmdlist	*now;
 	t_cmdlist	*tmp;
@@ -68,6 +68,7 @@ t_cmdlist	*delete_cmds(t_cmdlist **lst)
 	while (now)
 	{
 		tmp = now->next;
+		now->next = NULL;
 		free(now);
 		now = NULL;
 		now = tmp;
@@ -76,15 +77,16 @@ t_cmdlist	*delete_cmds(t_cmdlist **lst)
 	return (NULL);
 }
 
-t_stack		*delete_stack(t_stack *stack)
+t_stack				*delete_stack(t_stack *stack)
 {
 	free(stack->a);
 	free(stack->b);
 	free(stack);
+	stack->lst = delete_cmds(&(stack->lst));
 	return (NULL);
 }
 
-int			sorted(t_stack *stack)
+int					sorted(t_stack *stack)
 {
 	int	i;
 

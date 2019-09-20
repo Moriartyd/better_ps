@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 20:06:37 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/20 18:35:22 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/20 20:08:25 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,9 @@ int						check_medb(t_stack *s, int med);
 **	Command optimization
 */
 
-void		add_cmd(t_cmdlist *head, int cmd);
-void		print_cmd(t_cmdlist **lst);
-void		cmd_optimize(t_cmdlist *head);
-void		optimize_push(t_cmdlist **lst);
-void			optimize_rorevrota(t_cmdlist **lst);
+void					add_cmd(t_cmdlist *head, int cmd);
+void					print_cmd(t_cmdlist **lst);
+void					cmd_optimize(t_cmdlist *head);
+void					optimize_push(t_cmdlist **lst);
 
 #endif
